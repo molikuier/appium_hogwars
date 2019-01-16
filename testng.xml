@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="1" preserve-order="true" name="/Users/zhibinwang/Documents/coding/TestDemo">
+        <groups>
+            <dependencies>
+                <group name="group1" depends-on="">
+                    <classes>
+                        <class name="XueQiu.LoginTest">
+                            <methods>
+                                <include name="byPassword"></include>
+                            </methods>
+                        </class>
+                        <class name="XueQiu.SearchTest">
+                            <methods>
+                                <include name="search"></include>
+                            </methods>
+                        </class>
+                    </classes>
+                </group>
+            </dependencies>
+        </groups>
+    </test>
+</suite>

@@ -1,7 +1,9 @@
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+package XueQiu;
+
+//import org.junit.jupiter.api.Test;
+import Data.XueqiuParamers;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import page.MainPage;
 import page.SearchPage;
 
@@ -16,15 +18,17 @@ public class SearchTest {
     static MainPage mainPage;
     static SearchPage searchPage;
 
-    @BeforeAll
+//    @BeforeAll
+    @BeforeClass
     static void befor(){
         mainPage = MainPage.start();
         searchPage = mainPage.gotoSearch();
 
     }
 
-    @ParameterizedTest
-    @CsvSource({"pdd,拼多多","alibaba, 阿里巴巴"})
+//    @ParameterizedTest
+//    @CsvSource({"pdd,拼多多","alibaba, 阿里巴巴"})
+    @Test(dataProvider = "getSearch",dataProviderClass = XueqiuParamers.class)
      void search(String keyword,String expect){
         searchPage.search(keyword);
         ArrayList<String> result = searchPage.getAll();
@@ -36,6 +40,7 @@ public class SearchTest {
     }
 
     @Test
+
     void selector(){
         ArrayList<String> select = searchPage.search("alibaba").addSelector();
         assertThat(select,hasItems("com.xueqiu.android:id/followed_btn", "com.xueqiu.android:id/follow_btn"));

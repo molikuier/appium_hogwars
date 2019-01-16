@@ -17,7 +17,7 @@ public class Driver {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "Android");
         desiredCapabilities.setCapability("platformVersion", "8.0.0");
-        desiredCapabilities.setCapability("deviceName", "192.168.56.103:5555");
+        desiredCapabilities.setCapability("deviceName", "2b383fc5");
         desiredCapabilities.setCapability("noReset", "true");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
@@ -32,7 +32,7 @@ public class Driver {
         }
 
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     public static AndroidDriver<AndroidElement> getCurrentDriver(){return driver;}
 
